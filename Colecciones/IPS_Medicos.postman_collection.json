@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "d52c4f6a-c9ef-4445-b586-96e6005b414e",
+		"name": "IPS_Medicos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41019052",
+		"_collection_link": "https://www.postman.com/red-comet-750755/workspace/epsandes-diego/collection/41019052-d52c4f6a-c9ef-4445-b586-96e6005b414e?action=share&source=collection_link&creator=41019052"
+	},
+	"item": [
+		{
+			"name": "Create IPS_Medicos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pk\": {\r\n        \"MEDICO_ID\": {\r\n            \"registro_medico\": {{registro_medico}}\r\n        },\r\n        \"NIT\": {\r\n            \"NIT\": {{NIT}}\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/IPS_Medicos/new/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"IPS_Medicos",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create IPS_Medicos",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pk\": {\r\n        \"MEDICO_ID\": {\r\n            \"registro_medico\": {{registro_medico}}\r\n        },\r\n        \"NIT\": {\r\n            \"NIT\": {{NIT}}\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/IPS_Medicos/new/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"IPS_Medicos",
+								"new",
+								"save"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Obtener_Servicios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/IPS_Medicos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"IPS_Medicos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
