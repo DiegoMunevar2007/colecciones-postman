@@ -1,0 +1,307 @@
+{
+	"info": {
+		"_postman_id": "71429f7f-31e7-421c-ba5d-eee5a21212e1",
+		"name": "Ordenes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41801941"
+	},
+	"item": [
+		{
+			"name": "Guardar Orden",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Response body matches expected message\", function () {\r",
+							"    pm.expect(pm.response.text()).to.eql(\"Orden creada exitosamente\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"medico\": {\r\n        \"registro_medico\": 57251926,\r\n        \"nombre\": \"Pepito Perez MD\",\r\n        \"tipo_documento\": \"CC\",\r\n        \"numero_documento\": 1014980939,\r\n        \"especialidad\": {\r\n            \"id\": 1,\r\n            \"tipo_especialidad\": \"Cirugía\"\r\n        }\r\n    },\r\n    \"afiliado\": {\r\n        \"numero_documento\": 10272216,\r\n        \"tipo_documento\": \"CC\",\r\n        \"nombre\": \"Manuela\",\r\n        \"apellido\": \"Lovera Lozano\",\r\n        \"fecha_nacimiento\": \"2000-01-02\",\r\n        \"direccion_residencia\": \"Calle 2 Sur\",\r\n        \"telefono\": \"61252719\",\r\n        \"tipo\": \"contribuyente\"\r\n    },\r\n    \"fecha\": \"2024-01-02\",\r\n    \"estado\": \"Vigente\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ordenes/new/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordenes",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las Ordenes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ordenes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordenes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener una Orden",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ordenes/{{id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordenes",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Orden",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response body matches expected message\", function () {\r",
+							"    pm.expect(pm.response.text()).to.eql(\"Orden actualizada exitosamente\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"medico\": {\r\n        \"registro_medico\": 57251926,\r\n        \"nombre\": \"Pepito Perez Antorio MD\",\r\n        \"tipo_documento\": \"CC\",\r\n        \"numero_documento\": 1014980939,\r\n        \"especialidad\": {\r\n            \"id\": 1,\r\n            \"tipo_especialidad\": \"Cirugía\"\r\n        }\r\n    },\r\n    \"afiliado\": {\r\n        \"numero_documento\": 10272216,\r\n        \"tipo_documento\": \"CC\",\r\n        \"nombre\": \"Manuela\",\r\n        \"apellido\": \"Lovera Lozano\",\r\n        \"fecha_nacimiento\": \"2000-01-02\",\r\n        \"direccion_residencia\": \"Calle 2 Sur\",\r\n        \"telefono\": \"61252719\",\r\n        \"tipo\": \"contribuyente\"\r\n    },\r\n    \"id\" : {{id}},\r\n    \"fecha\": \"2027-01-02\",\r\n    \"estado\": \"Completada\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ordenes/{{id}}/edit/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordenes",
+						"{{id}}",
+						"edit",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete IPS por id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response body matches expected message\", function () {\r",
+							"    pm.expect(pm.response.text()).to.eql(\"Orden eliminada exitosamente\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ordenes/{{id}}/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordenes",
+						"{{id}}",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nuevo Afiliado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response body matches expected message\", function () {\r",
+							"    pm.expect(pm.response.text()).to.eql(\"Afiliado creado exitosamente\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numero_documento\": 10272216,\r\n    \"tipo_documento\": \"CC\",\r\n    \"nombre\": \"Manuela\",\r\n    \"apellido\": \"Lovera Lozano\",\r\n    \"fecha_nacimiento\": \"2000-01-02\",\r\n    \"direccion_residencia\": \"Calle 2 Sur\",\r\n    \"telefono\": \"61252719\",\r\n    \"tipo\": \"contribuyente\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/afiliados/new/save",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"afiliados",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nuevo Medico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response body matches expected message\", function () {\r",
+							"    pm.expect(pm.response.text()).to.eql(\"medico creado exitosamente\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"registro_medico\": 57251926,\r\n    \"nombre\": \"Pepito Perez MD\",\r\n    \"tipo_documento\": \"CC\",\r\n    \"numero_documento\": 1014980939,\r\n    \"especialidad\": {\r\n        \"id\": 1,\r\n        \"tipo_especialidad\": \"Cirugía\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/medicos/new/save",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"medicos",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
