@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "5a306bfc-e846-479d-9c35-4b97197cd2ff",
+		"name": "Citas Prestacion Servicio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41019052",
+		"_collection_link": "https://www.postman.com/red-comet-750755/workspace/epsandes-diego/collection/41019052-5a306bfc-e846-479d-9c35-4b97197cd2ff?action=share&source=collection_link&creator=41019052"
+	},
+	"item": [
+		{
+			"name": "Crear una cita",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"horario\": \"19:00\",\r\n\t\"fecha\": \"2024-01-01\",\r\n\t\"vigencia\": \"Vigente\",\r\n\t\"ips\": {\r\n\t\t\"nit\": 123456209,\r\n\t\t\"nombre\": \"Test IPS\",\r\n\t\t\"direccion\": \"Test direccion\",\r\n\t\t\"telefono\": \"Test telefono\"\r\n\t},\r\n\t\"servicio\": {\r\n\t\t\"id\": 10,\r\n\t\t\"tipo\": \"Test tipo\",\r\n\t\t\"nombre\": \"Test ServicioSalud\",\r\n\t\t\"descripcion\": \"Test descripcion\"\r\n\t},\r\n\t\"afiliado\": {\r\n\t\t\"numero_documento\": 10272216,\r\n\t\t\"tipo_documento\": \"CC\",\r\n\t\t\"nombre\": \"Manuela\",\r\n\t\t\"apellido\": \"Lovera Lozano\",\r\n\t\t\"fecha_nacimiento\": \"2000-01-02\",\r\n\t\t\"direccion_residencia\": \"Calle 2 Sur\",\r\n\t\t\"telefono\": \"61252719\",\r\n\t\t\"tipo\": \"contribuyente\"\r\n\t},\r\n\t\"medico\": {\r\n\t\t\"registro_medico\": 57251926,\r\n\t\t\"nombre\": \"Pepito Perez MD\",\r\n\t\t\"tipo_documento\": \"CC\",\r\n\t\t\"numero_documento\": 1014980939,\r\n\t\t\"especialidad\": {\r\n\t\t\t\"id\": 1,\r\n\t\t\t\"tipo_especialidad\": \"Cirugía\"\r\n\t\t}\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/citas/new/save",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"citas",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear una cita prestacion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pk\": {\r\n        \"cita_id\": {\r\n            \"id\":12,\r\n            \"horario\": \"19:00\",\r\n            \"fecha\": \"2024-01-01\",\r\n            \"vigencia\": \"Vigente\",\r\n            \"ips\": {\r\n                \"nit\": 123456209,\r\n                \"nombre\": \"Test IPS\",\r\n                \"direccion\": \"Test direccion\",\r\n                \"telefono\": \"Test telefono\"\r\n            },\r\n            \"servicio\": {\r\n                \"id\": 10,\r\n                \"tipo\": \"Test tipo\",\r\n                \"nombre\": \"Test ServicioSalud\",\r\n                \"descripcion\": \"Test descripcion\"\r\n            },\r\n            \"afiliado\": {\r\n                \"numero_documento\": 10272216,\r\n                \"tipo_documento\": \"CC\",\r\n                \"nombre\": \"Manuela\",\r\n                \"apellido\": \"Lovera Lozano\",\r\n                \"fecha_nacimiento\": \"2000-01-02\",\r\n                \"direccion_residencia\": \"Calle 2 Sur\",\r\n                \"telefono\": \"61252719\",\r\n                \"tipo\": \"contribuyente\"\r\n            },\r\n            \"medico\": {\r\n                \"registro_medico\": 57251926,\r\n                \"nombre\": \"Pepito Perez MD\",\r\n                \"tipo_documento\": \"CC\",\r\n                \"numero_documento\": 1014980939,\r\n                \"especialidad\": {\r\n                    \"id\": 1,\r\n                    \"tipo_especialidad\": \"Cirugía\"\r\n                }\r\n            }\r\n        },\r\n        \"prestacion_servicio_id\": {\r\n            \"id\": 38,\r\n            \"servicio_id\": {\r\n                \"id\": 10,\r\n                \"tipo\": \"Test tipo\",\r\n                \"nombre\": \"Test ServicioSalud\",\r\n                \"descripcion\": \"Test descripcion\"\r\n            }\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/citas_prestacion_servicios/new/save",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"citas_prestacion_servicios",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener las citas prestaciones",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"horario\": \"19:00\",\r\n\t\"fecha\": \"2024-01-01\",\r\n\t\"vigencia\": \"Vigente\",\r\n\t\"ips\": {\r\n\t\t\"nit\": 123456209,\r\n\t\t\"nombre\": \"Test IPS\",\r\n\t\t\"direccion\": \"Test direccion\",\r\n\t\t\"telefono\": \"Test telefono\"\r\n\t},\r\n\t\"servicio\": {\r\n\t\t\"id\": 10,\r\n\t\t\"tipo\": \"Test tipo\",\r\n\t\t\"nombre\": \"Test ServicioSalud\",\r\n\t\t\"descripcion\": \"Test descripcion\"\r\n\t},\r\n\t\"afiliado\": {\r\n\t\t\"numero_documento\": 10272216,\r\n\t\t\"tipo_documento\": \"CC\",\r\n\t\t\"nombre\": \"Manuela\",\r\n\t\t\"apellido\": \"Lovera Lozano\",\r\n\t\t\"fecha_nacimiento\": \"2000-01-02\",\r\n\t\t\"direccion_residencia\": \"Calle 2 Sur\",\r\n\t\t\"telefono\": \"61252719\",\r\n\t\t\"tipo\": \"contribuyente\"\r\n\t},\r\n\t\"medico\": {\r\n\t\t\"registro_medico\": 57251926,\r\n\t\t\"nombre\": \"Pepito Perez MD\",\r\n\t\t\"tipo_documento\": \"CC\",\r\n\t\t\"numero_documento\": 1014980939,\r\n\t\t\"especialidad\": {\r\n\t\t\t\"id\": 1,\r\n\t\t\t\"tipo_especialidad\": \"Cirugía\"\r\n\t\t}\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/citas_prestacion_servicios",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"citas_prestacion_servicios"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

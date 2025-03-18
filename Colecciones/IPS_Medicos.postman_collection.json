@@ -27,7 +27,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"pk\": {\r\n        \"servicio_id\": {\r\n            \"tipo\": \"Test tipos\",\r\n            \"nombre\": \"Test ServicioSalud\",\r\n            \"descripcion\": \"Test descripcion\"\r\n        },\r\n        \"nit\": {\r\n            \"nit\": 12356789,\r\n            \"nombre\": \"Test IPS\",\r\n            \"direccion\": \"Test direccion\",\r\n            \"telefono\": \"Test telefono\"\r\n        }\r\n    }\r\n}",
+					"raw": "{\r\n    \"pk\": {\r\n        \"MEDICO_ID\": {\r\n            \"registro_medico\": 57251978,\r\n            \"nombre\": \"Pepito Perez MD\",\r\n            \"tipo_documento\": \"CC\",\r\n            \"numero_documento\": 1014980939,\r\n            \"especialidad\": {\r\n                \"id\": 7,\r\n                \"tipo_especialidad\": \"Cirugía\"\r\n            }\r\n        },\r\n        \"NIT\": {\r\n            \"NIT\": 2,\r\n            \"nombre\": \"Test IPS\",\r\n            \"direccion\": \"Test direccion\",\r\n            \"telefono\": \"Test telefono\"\r\n        }\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -35,14 +35,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/IPS_Medicos/new/save",
+					"raw": "http://localhost:8080/ips_medicos/new/save",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"IPS_Medicos",
+						"ips_medicos",
 						"new",
 						"save"
 					]
@@ -71,12 +71,82 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/IPS_Medicos",
+					"raw": "{{baseUrl}}/ips_medicos",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"IPS_Medicos"
+						"ips_medicos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dar medicosIps por id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/ips_medicos/IPS/{{NIT}}/medicos/{{medicosId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ips_medicos",
+						"IPS",
+						"{{NIT}}",
+						"medicos",
+						"{{medicosId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Medicos por IPS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/ips_medicos/IPS/{{NIT}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ips_medicos",
+						"IPS",
+						"{{NIT}}"
 					]
 				}
 			},
@@ -107,7 +177,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nit\": 12345899,\r\n    \"nombre\": \"Test IPS\",\r\n    \"direccion\": \"Test direccion\",\r\n    \"telefono\": \"Test telefono\"\r\n}",
+					"raw": "{\r\n    \"nit\": 12345879,\r\n    \"nombre\": \"Test IPS\",\r\n    \"direccion\": \"Test direccion\",\r\n    \"telefono\": \"Test telefono\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -140,7 +210,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"registro_medico\":57251926,\r\n    \"nombre\":\"Pepito Perez MD\",\r\n    \"tipo_documento\":\"CC\",\r\n    \"numero_documento\":1014980939,\r\n    \"especialidad\":{\r\n        \"id\":1,\r\n        \"tipo_especialidad\":\"Cirugía\"\r\n    }\r\n}",
+					"raw": "{\r\n    \"registro_medico\":57251978,\r\n    \"nombre\":\"Pepito Perez MD\",\r\n    \"tipo_documento\":\"CC\",\r\n    \"numero_documento\":1014980939,\r\n    \"especialidad\":{\r\n        \"id\":7,\r\n        \"tipo_especialidad\":\"Cirugía\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

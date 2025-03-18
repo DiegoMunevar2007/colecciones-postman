@@ -7,6 +7,50 @@
 	},
 	"item": [
 		{
+			"name": "Create IPS_Servicios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pk\": {\r\n        \"servicio_id\": {\r\n            \"id\": 40,\r\n            \"tipo\": \"Test tipo\",\r\n            \"nombre\": \"Test ServicioSalud\",\r\n            \"descripcion\": \"Test descripcion\"\r\n        },\r\n        \"nit\": {\r\n            \"nit\": 1,\r\n            \"nombre\": \"Test IPS\",\r\n            \"direccion\": \"Test direccion\",\r\n            \"telefono\": \"Test telefono\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/IPS_Servicios/new/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"IPS_Servicios",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Asignar IPS_Servicios",
 			"event": [
 				{
