@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "d52c4f6a-c9ef-4445-b586-96e6005b414e",
+		"_postman_id": "6d7643ee-c19f-4245-928a-fb896d7033f0",
 		"name": "IPS_Medicos",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "41019052",
-		"_collection_link": "https://www.postman.com/red-comet-750755/workspace/epsandes-diego/collection/41019052-d52c4f6a-c9ef-4445-b586-96e6005b414e?action=share&source=collection_link&creator=41019052"
+		"_exporter_id": "41801941"
 	},
 	"item": [
 		{
@@ -14,10 +13,9 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 201\", function () {\r",
-							"    pm.response.to.have.status(201);\r",
-							"});\r",
-							""
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -29,7 +27,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"pk\": {\r\n        \"MEDICO_ID\": {\r\n            \"registro_medico\": {{registro_medico}}\r\n        },\r\n        \"NIT\": {\r\n            \"NIT\": {{NIT}}\r\n        }\r\n    }\r\n}",
+					"raw": "{\r\n    \"pk\": {\r\n        \"servicio_id\": {\r\n            \"tipo\": \"Test tipos\",\r\n            \"nombre\": \"Test ServicioSalud\",\r\n            \"descripcion\": \"Test descripcion\"\r\n        },\r\n        \"nit\": {\r\n            \"nit\": 12356789,\r\n            \"nombre\": \"Test IPS\",\r\n            \"direccion\": \"Test direccion\",\r\n            \"telefono\": \"Test telefono\"\r\n        }\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -50,58 +48,114 @@
 					]
 				}
 			},
-			"response": [
-				{
-					"name": "Create IPS_Medicos",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"pk\": {\r\n        \"MEDICO_ID\": {\r\n            \"registro_medico\": {{registro_medico}}\r\n        },\r\n        \"NIT\": {\r\n            \"NIT\": {{NIT}}\r\n        }\r\n    }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/IPS_Medicos/new/save",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"IPS_Medicos",
-								"new",
-								"save"
-							]
-						}
-					},
-					"status": "Created",
-					"code": 201,
-					"_postman_previewlanguage": "Text",
-					"header": [],
-					"cookie": [],
-					"body": ""
-				}
-			]
+			"response": []
 		},
 		{
-			"name": "Obtener_Servicios",
+			"name": "Obtener IPS_Medicos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/IPS_Medicos",
+					"raw": "{{baseUrl}}/IPS_Medicos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"IPS_Medicos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar IPS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response body matches expected message\", function () {\r",
+							"    pm.expect(pm.response.text()).to.eql(\"IPS creada exitosamente\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nit\": 12345899,\r\n    \"nombre\": \"Test IPS\",\r\n    \"direccion\": \"Test direccion\",\r\n    \"telefono\": \"Test telefono\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/IPS/new/save",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"IPS_Medicos"
+						"IPS",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nuevo Medico",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"registro_medico\":57251926,\r\n    \"nombre\":\"Pepito Perez MD\",\r\n    \"tipo_documento\":\"CC\",\r\n    \"numero_documento\":1014980939,\r\n    \"especialidad\":{\r\n        \"id\":1,\r\n        \"tipo_especialidad\":\"Cirugía\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/medicos/new/save",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"medicos",
+						"new",
+						"save"
 					]
 				}
 			},

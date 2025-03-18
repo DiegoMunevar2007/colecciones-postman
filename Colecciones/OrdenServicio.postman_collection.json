@@ -1,0 +1,420 @@
+{
+	"info": {
+		"_postman_id": "b730c1a4-6cf6-4d6e-bff0-e303149040af",
+		"name": "OrdenServicio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41547839"
+	},
+	"item": [
+		{
+			"name": "Nuevo Afiliado Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response body matches expected message\", function () {\r",
+							"    pm.expect(pm.response.text()).to.eql(\"Afiliado creado exitosamente\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numero_documento\": 10272216,\r\n    \"tipo_documento\": \"CC\",\r\n    \"nombre\": \"Manuela\",\r\n    \"apellido\": \"Lovera Lozano\",\r\n    \"fecha_nacimiento\": \"2000-01-02\",\r\n    \"direccion_residencia\": \"Calle 2 Sur\",\r\n    \"telefono\": \"61252719\",\r\n    \"tipo\": \"contribuyente\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/afiliados/new/save",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"afiliados",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nuevo Medico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response body matches expected message\", function () {\r",
+							"    pm.expect(pm.response.text()).to.eql(\"medico creado exitosamente\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"registro_medico\": 57251926,\r\n    \"nombre\": \"Pepito Perez MD\",\r\n    \"tipo_documento\": \"CC\",\r\n    \"numero_documento\": 1014980939,\r\n    \"especialidad\": {\r\n        \"id\": 1,\r\n        \"tipo_especialidad\": \"Cirugía\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/medicos/new/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"medicos",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar ServicioSalud",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response body matches expected message\", function () {\r",
+							"    pm.expect(pm.response.text()).to.eql(\"Servicio de salud creado exitosamente\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipo\" : \"Test tipo\",\r\n    \"nombre\": \"Test ServicioSalud\",\r\n    \"descripcion\": \"Test descripcion\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ServicioSalud/new/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ServicioSalud",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Guardar ServicioSalud",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 1,\r\n    \"tipo\" : \"Test tipo\",\r\n    \"nombre\": \"Test ServicioSalud\",\r\n    \"descripcion\": \"Test descripcion\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ServicioSalud/new/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ServicioSalud",
+								"new",
+								"save"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Guardar Orden",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Response body matches expected message\", function () {\r",
+							"    pm.expect(pm.response.text()).to.eql(\"Orden creada exitosamente\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"medico\": {\r\n        \"registro_medico\": 57251926,\r\n        \"nombre\": \"Pepito Perez MD\",\r\n        \"tipo_documento\": \"CC\",\r\n        \"numero_documento\": 1014980939,\r\n        \"especialidad\": {\r\n            \"id\": 1,\r\n            \"tipo_especialidad\": \"Cirugía\"\r\n        }\r\n    },\r\n    \"afiliado\": {\r\n        \"numero_documento\": 10272216,\r\n        \"tipo_documento\": \"CC\",\r\n        \"nombre\": \"Manuela\",\r\n        \"apellido\": \"Lovera Lozano\",\r\n        \"fecha_nacimiento\": \"2000-01-02\",\r\n        \"direccion_residencia\": \"Calle 2 Sur\",\r\n        \"telefono\": \"61252719\",\r\n        \"tipo\": \"contribuyente\"\r\n    },\r\n    \"fecha\": \"2024-01-02\",\r\n    \"estado\": \"Vigente\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ordenes/new/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordenes",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar orden servicio de salud",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Response body matches expected message\", function () {\r",
+							"    pm.expect(pm.response.text()).to.eql(\"Orden de servicio creada correctamente con los servicios de salud asociados\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orden\": {\r\n        \"medico\": {\r\n        \"registro_medico\": 57251926,\r\n        \"nombre\": \"Pepito Perez MD\",\r\n        \"tipo_documento\": \"CC\",\r\n        \"numero_documento\": 1014980939,\r\n        \"especialidad\": {\r\n            \"id\": 1,\r\n            \"tipo_especialidad\": \"Cirugía\"\r\n            }\r\n        },\r\n        \"afiliado\": {\r\n            \"numero_documento\": 10272216,\r\n            \"tipo_documento\": \"CC\",\r\n            \"nombre\": \"Manuela\",\r\n            \"apellido\": \"Lovera Lozano\",\r\n            \"fecha_nacimiento\": \"2000-01-02\",\r\n            \"direccion_residencia\": \"Calle 2 Sur\",\r\n            \"telefono\": \"61252719\",\r\n            \"tipo\": \"contribuyente\"\r\n        },\r\n        \"fecha\": \"2024-01-02\",\r\n        \"estado\": \"Vigente\"\r\n    },\r\n    \"servicio\": {\r\n        \"tipo\" : \"Test tipo\",\r\n        \"nombre\": \"Test ServicioSalud\",\r\n        \"descripcion\": \"Test descripcion\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ordenesServiciosSalud/new/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordenesServiciosSalud",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las Ordenes Servicios de Salud",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ordenesServiciosSalud",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordenesServiciosSalud"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Ordenes Servicio de salud por un Orden ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ordenesServiciosSalud/orden",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordenesServiciosSalud",
+						"orden"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Ordenes Servicio de Salud por servicio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ordenesServiciosSalud/servicio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordenesServiciosSalud",
+						"servicio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener una orden de servicio por ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ordenesServiciosSalud/ordenServicio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordenesServiciosSalud",
+						"ordenServicio"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
