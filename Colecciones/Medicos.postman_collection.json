@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "3c09bc76-8699-4c72-87b0-63f4ec416be8",
+		"name": "Medicos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41801941"
+	},
+	"item": [
+		{
+			"name": "Nuevo Medico",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"registro_medico\":57251926,\r\n    \"nombre\":\"Pepito Perez MD\",\r\n    \"tipo_documento\":\"CC\",\r\n    \"numero_documento\":109804555,\r\n    \"especialidad\":{\r\n        \"id\":1,\r\n        \"tipo_especialidad\":\"Cirugía\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/medicos/new/save",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"medicos",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Medico",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"registro_medico\":57251926,\r\n    \"nombre\":\"Pepito Perez MD\",\r\n    \"tipo_documento\":\"CC\",\r\n    \"numero_documento\":109804555,\r\n    \"especialidad\":{\r\n        \"id\":1,\r\n        \"tipo_especialidad\":\"Cirugía\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/medicos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"medicos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Medico",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"registro_medico\":{{registro_medico}},\r\n    \"nombre\":\"JUAN BURRITO\",\r\n    \"tipo_documento\":\"CC\",\r\n    \"numero_documento\":109804555,\r\n    \"especialidad\":{\r\n        \"id\":7,\r\n        \"tipo_especialidad\":\"Cirugía\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/medicos/{{registro_medico}}/edit/save",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"medicos",
+						"{{registro_medico}}",
+						"edit",
+						"save"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
