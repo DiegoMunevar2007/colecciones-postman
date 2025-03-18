@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "867ff51c-579b-4b81-9d3f-55979eb53731",
+		"_postman_id": "7a817f7d-db92-4890-a691-e3770cea983a",
 		"name": "ServicioSalud",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "41801941"
+		"_exporter_id": "41019052",
+		"_collection_link": "https://www.postman.com/red-comet-750755/workspace/epsandes-diego/collection/41019052-7a817f7d-db92-4890-a691-e3770cea983a?action=share&source=collection_link&creator=41019052"
 	},
 	"item": [
 		{
@@ -13,11 +14,8 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"pm.test(\"Response body matches expected message\", function () {\r",
-							"    pm.expect(pm.response.text()).to.eql(\"Servicio de salud creado exitosamente\");\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
 							"});\r",
 							""
 						],
@@ -52,24 +50,46 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Guardar ServicioSalud",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 1,\r\n    \"tipo\" : \"Test tipo\",\r\n    \"nombre\": \"Test ServicioSalud\",\r\n    \"descripcion\": \"Test descripcion\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ServicioSalud/new/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ServicioSalud",
+								"new",
+								"save"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
 		},
 		{
 			"name": "Obtener todos los ServicioSalud",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -89,20 +109,6 @@
 		},
 		{
 			"name": "Obtener un ServicioSalud",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -119,7 +125,33 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Obtener un ServicioSalud",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ServicioSalud/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ServicioSalud",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
 		},
 		{
 			"name": "Update ServicioSalud por id",
@@ -131,12 +163,17 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"Response body matches expected message\", function () {\r",
-							"    pm.expect(pm.response.text()).to.eql(\"Servicio de salud actualizado exitosamente\");\r",
-							"});"
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [],
+						"type": "text/javascript"
 					}
 				}
 			],
@@ -145,7 +182,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\" : {{id}},\r\n    \"tipo\" : \"Juanse pendejo x2\",\r\n    \"nombre\": \"Update ServicioSalud\",\r\n    \"descripcion\": \"Update descripcion\"\r\n}",
+					"raw": "{\r\n    \"id\" : {{id}},\r\n    \"tipo\" : \"Juanse pendejo x2\",\r\n    \"nombre\": \"Update ServicioSalud\",\r\n    \"descripcion\": \"Update descripcion\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -167,7 +204,44 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Update ServicioSalud por id",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 1,\r\n    \"tipo\" : \"Update tipo\",\r\n    \"nombre\": \"Update ServicioSalud\",\r\n    \"descripcion\": \"Update descripcion\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ServicioSalud/1/edit/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ServicioSalud",
+								"1",
+								"edit",
+								"save"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
 		},
 		{
 			"name": "Delete ServicioSalud por id",
@@ -176,8 +250,8 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
 							"});\r",
 							""
 						],
@@ -203,7 +277,34 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Delete ServicioSalud por id",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ServicioSalud/1/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ServicioSalud",
+								"1",
+								"delete"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
 		}
 	]
 }

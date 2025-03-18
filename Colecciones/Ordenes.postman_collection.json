@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "71429f7f-31e7-421c-ba5d-eee5a21212e1",
+		"_postman_id": "3356970d-402c-4f09-b0b0-97a85578fc68",
 		"name": "Ordenes",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "41801941"
+		"_exporter_id": "41019052",
+		"_collection_link": "https://www.postman.com/red-comet-750755/workspace/epsandes-diego/collection/41019052-3356970d-402c-4f09-b0b0-97a85578fc68?action=share&source=collection_link&creator=41019052"
 	},
 	"item": [
 		{
@@ -145,7 +146,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"medico\": {\r\n        \"registro_medico\": 57251926,\r\n        \"nombre\": \"Pepito Perez Antorio MD\",\r\n        \"tipo_documento\": \"CC\",\r\n        \"numero_documento\": 1014980939,\r\n        \"especialidad\": {\r\n            \"id\": 1,\r\n            \"tipo_especialidad\": \"Cirugía\"\r\n        }\r\n    },\r\n    \"afiliado\": {\r\n        \"numero_documento\": 10272216,\r\n        \"tipo_documento\": \"CC\",\r\n        \"nombre\": \"Manuela\",\r\n        \"apellido\": \"Lovera Lozano\",\r\n        \"fecha_nacimiento\": \"2000-01-02\",\r\n        \"direccion_residencia\": \"Calle 2 Sur\",\r\n        \"telefono\": \"61252719\",\r\n        \"tipo\": \"contribuyente\"\r\n    },\r\n    \"id\" : {{id}},\r\n    \"fecha\": \"2027-01-02\",\r\n    \"estado\": \"Completada\"\r\n}",
+					"raw": "{\r\n    \"medico\": {\r\n        \"registro_medico\": 57251926,\r\n        \"nombre\": \"Pepito Perez Antorio MD\",\r\n        \"tipo_documento\": \"CC\",\r\n        \"numero_documento\": 1014980939,\r\n        \"especialidad\": {\r\n            \"id\": 1,\r\n            \"tipo_especialidad\": \"Cirugía\"\r\n        }\r\n    },\r\n    \"afiliado\": {\r\n        \"numero_documento\": 10272216,\r\n        \"tipo_documento\": \"CC\",\r\n        \"nombre\": \"Manuela\",\r\n        \"apellido\": \"Lovera Lozano\",\r\n        \"fecha_nacimiento\": \"2000-01-02\",\r\n        \"direccion_residencia\": \"Calle 2 Sur\",\r\n        \"telefono\": \"61252719\",\r\n        \"tipo\": \"contribuyente\"\r\n    },\r\n    \"id\" : {{id}},\r\n    \"fecha\": \"2024-01-01\",\r\n    \"estado\": \"Completada\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
