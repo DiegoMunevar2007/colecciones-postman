@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "00e86e54-1916-4e12-b01d-19788909c610",
+		"name": "Afiliado",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41019052",
+		"_collection_link": "https://www.postman.com/red-comet-750755/workspace/epsandes-diego/collection/41019052-00e86e54-1916-4e12-b01d-19788909c610?action=share&source=collection_link&creator=41019052"
+	},
+	"item": [
+		{
+			"name": "Obtener todos los afiliados",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/afiliados",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"afiliados"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un afiliado",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numero_documento\":10272217,\r\n    \"tipo_documento\":\"CC\",\r\n    \"nombre\":\"Manuela\",\r\n    \"apellido\":\"Lovera Lozano\",\r\n    \"fecha_nacimiento\":\"2000-01-02\",\r\n    \"direccion_residencia\":\"Calle 2 Sur\",\r\n    \"telefono\":\"61252719\",\r\n    \"tipo\":\"contribuyente\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/afiliados/new/save",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"afiliados",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

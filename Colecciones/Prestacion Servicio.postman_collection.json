@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "1ed22d95-bcbd-4270-bec9-3b8a0f9ea29c",
+		"name": "Prestacion Servicio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41019052",
+		"_collection_link": "https://www.postman.com/red-comet-750755/workspace/epsandes-diego/collection/41019052-1ed22d95-bcbd-4270-bec9-3b8a0f9ea29c?action=share&source=collection_link&creator=41019052"
+	},
+	"item": [
+		{
+			"name": "Creacion de una prestacion de servicio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"servicio_id\": {\r\n\t\t\"id\": 10,\r\n\t\t\"tipo\": \"Test tipo\",\r\n\t\t\"nombre\": \"Test ServicioSalud\",\r\n\t\t\"descripcion\": \"Test descripcion\"\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/prestacion_Servicios/new/save",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"prestacion_Servicios",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las prestaciones de servicio",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"servicio_id\": {\r\n\t\t\"id\": 10,\r\n\t\t\"tipo\": \"Test tipo\",\r\n\t\t\"nombre\": \"Test ServicioSalud\",\r\n\t\t\"descripcion\": \"Test descripcion\"\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/prestacion_Servicios",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"prestacion_Servicios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Una prestacion de servicio",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"servicio_id\": {\r\n\t\t\"id\": 10,\r\n\t\t\"tipo\": \"Test tipo\",\r\n\t\t\"nombre\": \"Test ServicioSalud\",\r\n\t\t\"descripcion\": \"Test descripcion\"\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/prestacion_Servicios/38",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"prestacion_Servicios",
+						"38"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
