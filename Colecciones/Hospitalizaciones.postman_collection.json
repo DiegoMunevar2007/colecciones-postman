@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "a67cedad-1a1e-4135-99ec-a3463ed1d5ba",
+		"_postman_id": "603486ff-05a9-4a91-8243-0c58bad33a96",
 		"name": "Hospitalizaciones",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "41019052",
-		"_collection_link": "https://www.postman.com/red-comet-750755/workspace/epsandes-diego/collection/41019052-a67cedad-1a1e-4135-99ec-a3463ed1d5ba?action=share&source=collection_link&creator=41019052"
+		"_collection_link": "https://www.postman.com/red-comet-750755/workspace/epsandes-diego/collection/41019052-603486ff-05a9-4a91-8243-0c58bad33a96?action=share&source=collection_link&creator=41019052"
 	},
 	"item": [
 		{
@@ -45,7 +45,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"numero_documento\":1027126,\r\n    \"tipo_documento\":\"CC\",\r\n    \"nombre\":\"Manuela\",\r\n    \"apellido\":\"Lovera Lozano\",\r\n    \"fecha_naci\"\r\n\r\n}",
+					"raw": "{\r\n    \"numero_documento\":10272216,\r\n    \"tipo_documento\":\"CC\",\r\n    \"nombre\":\"Manuela\",\r\n    \"apellido\":\"Lovera Lozano\",\r\n    \"fecha_nacimiento\":\"2000-01-02\",\r\n    \"direccion_residencia\":\"Calle 2 Sur\",\r\n    \"telefono\":\"61252719\",\r\n    \"tipo\":\"contribuyente\"\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -61,6 +61,144 @@
 						"afiliados",
 						"new",
 						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear hospitalizacion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"fechaInicio\": \"2024-02-24\",\r\n\t\"fechaFin\": \"2024-09-21\",\r\n\t\"razon\": \"Tiene una infeccion y necesita antibiotico\",\r\n\t\"diagnostico\": \"Apendicitis\",\r\n\t\"medico\": {\r\n\t\t\"registro_medico\": 57251926,\r\n\t\t\"nombre\": \"Pepito Perez MD\",\r\n\t\t\"tipo_documento\": \"CC\",\r\n\t\t\"numero_documento\": 1014980939,\r\n\t\t\"especialidad\": {\r\n\t\t\t\"id\": 1,\r\n\t\t\t\"tipo_especialidad\": \"Cirugía\"\r\n\t\t}\r\n\t},\r\n\t\"afiliado\": {\r\n\t\t\"numero_documento\": 10272216,\r\n\t\t\"tipo_documento\": \"CC\",\r\n\t\t\"nombre\": \"Manuela\",\r\n\t\t\"apellido\": \"Lovera Lozano\",\r\n\t\t\"fecha_nacimiento\": \"2000-01-02\",\r\n\t\t\"direccion_residencia\": \"Calle 2 Sur\",\r\n\t\t\"telefono\": \"61252719\",\r\n\t\t\"tipo\": \"contribuyente\"\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/hospitalizaciones/new/save",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"hospitalizaciones",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las hospitalizaciones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/hospitalizaciones",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"hospitalizaciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las hospitalizaciones por ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_hospitalizacion",
+							"value": "34",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/hospitalizaciones/id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"hospitalizaciones",
+						"id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las hospitalizaciones por Afiliado",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_afiliado",
+							"value": "10272216",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/hospitalizaciones/afiliado",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"hospitalizaciones",
+						"afiliado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las hospitalizaciones por medico",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_medico",
+							"value": "57251926",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/hospitalizaciones/medico",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"hospitalizaciones",
+						"medico"
 					]
 				}
 			},
